@@ -5,18 +5,23 @@ public class FizzBuzzTemplate
 
     public String getFizzBuzzText(final int num)
     {
-        if (num % 15 == 0)
+        if (isDividable(num, 15))
         {
             return "FizzBuzz";
         }
-        if (num % 5 == 0)
+        if (isDividable(num, 5))
         {
             return "Buzz";
         }
-        if (num % 3 == 0)
+        if (isDividable(num, 3))
         {
             return "Fizz";
         }
         return Integer.toString(num);
+    }
+
+    private boolean isDividable(final int num, final int div)
+    {
+        return num % div == 0;
     }
 }
