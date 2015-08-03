@@ -33,6 +33,7 @@ public class TestFizzBuzzText
         return new Object[][]{
             new Object[]{1, "1"},
             new Object[]{3, "Fizz"},
+            new Object[]{5, "Buzz"},
         };
     }
 
