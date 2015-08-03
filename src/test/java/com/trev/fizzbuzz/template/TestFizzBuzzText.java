@@ -34,6 +34,7 @@ public class TestFizzBuzzText
             new Object[]{1, "1"},
             new Object[]{3, "Fizz"},
             new Object[]{5, "Buzz"},
+            new Object[]{15, "FizzBuzz"},
         };
     }
 

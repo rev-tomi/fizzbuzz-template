@@ -5,6 +5,10 @@ public class FizzBuzzTemplate
 
     public String getFizzBuzzText(final int num)
     {
+        if (num % 15 == 0)
+        {
+            return "FizzBuzz";
+        }
         if (num % 5 == 0)
         {
             return "Buzz";
