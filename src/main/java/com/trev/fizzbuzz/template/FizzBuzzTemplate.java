@@ -1,5 +1,7 @@
 package com.trev.fizzbuzz.template;
 
+import java.util.Iterator;
+
 public class FizzBuzzTemplate
 {
 
@@ -23,5 +25,39 @@ public class FizzBuzzTemplate
     private boolean isDividable(final int num, final int div)
     {
         return num % div == 0;
+    }
+
+    public Iterable<Integer> getFizzBuzzNumbers()
+    {
+        final Iterator<Integer> iterator = new Iterator<Integer>()
+        {
+
+            private int current = 1;
+
+            public boolean hasNext()
+            {
+                return current <= 100;
+            }
+
+            public Integer next()
+            {
+                return current++;
+            }
+
+            public void remove()
+            {
+                throw new UnsupportedOperationException("Read-Only Iterator");
+            }
+
+        };
+        return new Iterable<Integer>()
+        {
+
+            public Iterator<Integer> iterator()
+            {
+                return iterator;
+            }
+
+        };
     }
 }
