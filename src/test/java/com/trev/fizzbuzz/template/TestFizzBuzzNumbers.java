@@ -27,15 +27,30 @@ public class TestFizzBuzzNumbers
     }
 
     @Test
-    public void testFizzBuzzNumbers()
+    public void testFizzBuzzNumbersEnd()
     {
-        // THEN
-        Integer i = 0; // start value, inclusive
+        // WHEN
+        Integer i = null;
         while (nums.hasNext())
         {
+            i = nums.next(); // i is last from iterator now
+        }
+
+        // THEN
+        assertEquals(i, new Integer(100));
+    }
+
+    @Test
+    public void testFizzBuzzNumbers()
+    {
+        // GIVEN
+        Integer i = 0; // start value, inclusive
+
+        while (nums.hasNext())
+        {
+            // THEN
             i = i + 1; // step size
             assertEquals(i, nums.next());
         }
-        assertEquals(new Integer(100), i, "End Value, inclusive"); // end value, inclusive
     }
 }
