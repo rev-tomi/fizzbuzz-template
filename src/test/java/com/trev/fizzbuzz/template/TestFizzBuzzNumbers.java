@@ -4,27 +4,37 @@ import static org.testng.Assert.assertEquals;
 
 import java.util.Iterator;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TestFizzBuzzNumbers
 {
 
+    private Iterator<Integer> nums;
+
+    @BeforeMethod
+    public void setUp()
+    {
+        final FizzBuzzTemplate sut = new FizzBuzzTemplate();
+        nums = sut.getFizzBuzzNumbers().iterator();
+    }
+
+    @Test
+    public void testFizzBuzzNumbersStart()
+    {
+        // THEN
+        assertEquals(nums.next(), new Integer(1));
+    }
+
     @Test
     public void testFizzBuzzNumbers()
     {
-        // GIVEN
-        final FizzBuzzTemplate sut = new FizzBuzzTemplate();
-
-        // WHEN
-        final Iterable<Integer> nums = sut.getFizzBuzzNumbers();
-        final Iterator<Integer> iterator = nums.iterator();
-
         // THEN
         Integer i = 0; // start value, inclusive
-        while (iterator.hasNext())
+        while (nums.hasNext())
         {
             i = i + 1; // step size
-            assertEquals(i, iterator.next());
+            assertEquals(i, nums.next());
         }
         assertEquals(new Integer(100), i, "End Value, inclusive"); // end value, inclusive
     }
