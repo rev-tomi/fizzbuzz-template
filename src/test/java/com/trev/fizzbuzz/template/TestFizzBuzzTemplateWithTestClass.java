@@ -9,7 +9,7 @@ import java.util.List;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class TestFizzBuzzTemplate
+public class TestFizzBuzzTemplateWithTestClass
 {
 
     private TestFizzBuzz sut;
