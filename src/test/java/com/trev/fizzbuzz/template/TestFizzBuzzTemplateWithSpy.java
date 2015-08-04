@@ -14,19 +14,20 @@ public class TestFizzBuzzTemplateWithSpy
 {
 
     private FizzBuzzTemplate sut;
+    private List<Integer> oneTwoThree;
 
     @BeforeMethod
     public void setUp()
     {
         final FizzBuzzTemplate template = new FizzBuzzTemplate();
         sut = spy(template);
+        oneTwoThree = Arrays.asList(1, 2, 3);
     }
 
     @Test
     public void testIteratorRetrieved()
     {
         // GIVEN
-        final List<Integer> oneTwoThree = Arrays.asList(1, 2, 3);
         doReturn(oneTwoThree).when(sut).getFizzBuzzNumbers();
 
         // WHEN
@@ -34,5 +35,21 @@ public class TestFizzBuzzTemplateWithSpy
 
         // THEN
         verify(sut).getFizzBuzzNumbers();
+    }
+
+    @Test
+    public void testTextGenerated()
+    {
+        // GIVEN
+        doReturn(oneTwoThree).when(sut).getFizzBuzzNumbers();
+
+        // WHEN
+        sut.doFizzBuzz();
+
+        // THEN
+        verify(sut).getFizzBuzzText(1);
+        verify(sut).getFizzBuzzText(2);
+        verify(sut).getFizzBuzzText(3);
+
     }
 }
