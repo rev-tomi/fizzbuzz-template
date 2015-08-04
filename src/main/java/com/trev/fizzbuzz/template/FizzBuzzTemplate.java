@@ -10,7 +10,7 @@ public class FizzBuzzTemplate
         for (final Integer num : getFizzBuzzNumbers())
         {
             final String msg = getFizzBuzzText(num);
-            //                    printFizzBuzz(getFizzBuzzText(num));
+            printFizzBuzz(msg);
         }
     }
 
