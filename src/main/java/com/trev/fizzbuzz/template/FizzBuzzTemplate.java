@@ -5,6 +5,14 @@ import java.util.Iterator;
 public class FizzBuzzTemplate
 {
 
+    public void doFizzBuzz()
+    {
+        for (final Integer num : getFizzBuzzNumbers())
+        {
+            printFizzBuzz(getFizzBuzzText(num));
+        }
+    }
+
     protected Iterable<Integer> getFizzBuzzNumbers()
     {
         final Iterator<Integer> iterator = new Iterator<Integer>()
