@@ -1,6 +1,8 @@
 package com.trev.fizzbuzz.template;
 
 import static org.mockito.Matchers.anyInt;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
@@ -25,6 +27,7 @@ public class TestFizzBuzzTemplateWithSpy
         sut = spy(template);
         oneTwoThree = Arrays.asList(1, 2, 3);
         doReturn(oneTwoThree).when(sut).getFizzBuzzNumbers();
+        doNothing().when(sut).printFizzBuzz(anyString());
     }
 
     @Test
