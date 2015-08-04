@@ -60,4 +60,9 @@ public class FizzBuzzTemplate
 
         };
     }
+
+    public void printFizzBuzz(final String msg)
+    {
+        System.out.println(msg);
+    }
 }
