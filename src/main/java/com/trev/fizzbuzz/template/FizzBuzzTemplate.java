@@ -5,29 +5,7 @@ import java.util.Iterator;
 public class FizzBuzzTemplate
 {
 
-    public String getFizzBuzzText(final int num)
-    {
-        if (isDividable(num, 15))
-        {
-            return "FizzBuzz";
-        }
-        if (isDividable(num, 5))
-        {
-            return "Buzz";
-        }
-        if (isDividable(num, 3))
-        {
-            return "Fizz";
-        }
-        return Integer.toString(num);
-    }
-
-    private boolean isDividable(final int num, final int div)
-    {
-        return num % div == 0;
-    }
-
-    public Iterable<Integer> getFizzBuzzNumbers()
+    protected Iterable<Integer> getFizzBuzzNumbers()
     {
         final Iterator<Integer> iterator = new Iterator<Integer>()
         {
@@ -61,8 +39,30 @@ public class FizzBuzzTemplate
         };
     }
 
-    public void printFizzBuzz(final String msg)
+    protected void printFizzBuzz(final String msg)
     {
         System.out.println(msg);
+    }
+
+    protected String getFizzBuzzText(final int num)
+    {
+        if (isDividable(num, 15))
+        {
+            return "FizzBuzz";
+        }
+        if (isDividable(num, 5))
+        {
+            return "Buzz";
+        }
+        if (isDividable(num, 3))
+        {
+            return "Fizz";
+        }
+        return Integer.toString(num);
+    }
+
+    private boolean isDividable(final int num, final int div)
+    {
+        return num % div == 0;
     }
 }
