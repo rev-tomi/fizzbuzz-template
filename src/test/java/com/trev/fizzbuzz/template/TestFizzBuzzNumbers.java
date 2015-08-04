@@ -41,15 +41,17 @@ public class TestFizzBuzzNumbers
     }
 
     @Test
-    public void testFizzBuzzNumbers()
+    public void testFizzBuzzNumbersStep()
     {
         // GIVEN
         Integer i = 0; // start value, inclusive
 
         while (nums.hasNext())
         {
-            // THEN
+            // WHEN
             i = i + 1; // step size
+
+            // THEN
             assertEquals(i, nums.next());
         }
     }
