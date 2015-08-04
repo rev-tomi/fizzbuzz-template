@@ -24,14 +24,12 @@ public class TestFizzBuzzTemplateWithSpy
         final FizzBuzzTemplate template = new FizzBuzzTemplate();
         sut = spy(template);
         oneTwoThree = Arrays.asList(1, 2, 3);
+        doReturn(oneTwoThree).when(sut).getFizzBuzzNumbers();
     }
 
     @Test
     public void testIteratorRetrieved()
     {
-        // GIVEN
-        doReturn(oneTwoThree).when(sut).getFizzBuzzNumbers();
-
         // WHEN
         sut.doFizzBuzz();
 
@@ -42,9 +40,6 @@ public class TestFizzBuzzTemplateWithSpy
     @Test
     public void testTextGenerated()
     {
-        // GIVEN
-        doReturn(oneTwoThree).when(sut).getFizzBuzzNumbers();
-
         // WHEN
         sut.doFizzBuzz();
 
@@ -58,13 +53,13 @@ public class TestFizzBuzzTemplateWithSpy
     public void testMessagePrinted()
     {
         // GIVEN
-        doReturn(oneTwoThree).when(sut).getFizzBuzzNumbers();
-        doReturn("TEST").when(sut).getFizzBuzzText(anyInt());
+        final String defaultMsg = "TEST";
+        doReturn(defaultMsg).when(sut).getFizzBuzzText(anyInt());
 
         // WHEN
         sut.doFizzBuzz();
 
         // THEN
-        verify(sut, new Times(3)).printFizzBuzz("TEST");
+        verify(sut, new Times(3)).printFizzBuzz(defaultMsg);
     }
 }
