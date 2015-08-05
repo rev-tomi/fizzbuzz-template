@@ -1,33 +1,23 @@
 package com.trev.fizzbuzz.template;
 
-import java.util.Iterator;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class FizzBuzzTemplate
 {
 
     public void doFizzBuzz()
     {
-        for (final Integer num : getFizzBuzzNumbers())
+        getFizzBuzzNumbers().forEach(num ->
         {
             final String msg = getFizzBuzzText(num);
             printFizzBuzz(msg);
-        }
+        });
     }
 
-    protected Iterable<Integer> getFizzBuzzNumbers()
+    protected Stream<Integer> getFizzBuzzNumbers()
     {
-        final IntStream stream = IntStream.range(1, 101);
-        return new Iterable<Integer>()
-        {
-
-            @Override
-            public Iterator<Integer> iterator()
-            {
-                return stream.iterator();
-            }
-
-        };
+        return IntStream.range(1, 101).boxed();
     }
 
     protected void printFizzBuzz(final String msg)

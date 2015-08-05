@@ -7,8 +7,8 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import org.mockito.internal.verification.Times;
 import org.testng.annotations.BeforeMethod;
@@ -18,20 +18,20 @@ public class TestFizzBuzzTemplateWithSpy
 {
 
     private FizzBuzzTemplate sut;
-    private List<Integer> oneTwoThree;
+    private Stream<Integer> oneTwoThree;
 
     @BeforeMethod
     public void setUp()
     {
         final FizzBuzzTemplate template = new FizzBuzzTemplate();
         sut = spy(template);
-        oneTwoThree = Arrays.asList(1, 2, 3);
+        oneTwoThree = IntStream.of(1, 2, 3).boxed();
         doReturn(oneTwoThree).when(sut).getFizzBuzzNumbers();
         doNothing().when(sut).printFizzBuzz(anyString());
     }
 
     @Test
-    public void testIteratorRetrieved()
+    public void testStreamRetrieved()
     {
         // WHEN
         sut.doFizzBuzz();
