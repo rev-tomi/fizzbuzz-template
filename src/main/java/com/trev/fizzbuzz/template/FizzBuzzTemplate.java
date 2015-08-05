@@ -17,7 +17,7 @@ public class FizzBuzzTemplate
 
     protected Stream<Integer> getFizzBuzzNumbers()
     {
-        return IntStream.range(1, 101).boxed();
+        return IntStream.rangeClosed(1, 100).boxed();
     }
 
     protected void printFizzBuzz(final String msg)
