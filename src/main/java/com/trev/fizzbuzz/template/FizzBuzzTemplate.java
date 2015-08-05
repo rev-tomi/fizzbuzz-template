@@ -1,6 +1,7 @@
 package com.trev.fizzbuzz.template;
 
 import java.util.Iterator;
+import java.util.stream.IntStream;
 
 public class FizzBuzzTemplate
 {
@@ -16,33 +17,14 @@ public class FizzBuzzTemplate
 
     protected Iterable<Integer> getFizzBuzzNumbers()
     {
-        final Iterator<Integer> iterator = new Iterator<Integer>()
-        {
-
-            private int current = 1;
-
-            public boolean hasNext()
-            {
-                return current <= 100;
-            }
-
-            public Integer next()
-            {
-                return current++;
-            }
-
-            public void remove()
-            {
-                throw new UnsupportedOperationException("Read-Only Iterator");
-            }
-
-        };
+        final IntStream stream = IntStream.range(1, 101);
         return new Iterable<Integer>()
         {
 
+            @Override
             public Iterator<Integer> iterator()
             {
-                return iterator;
+                return stream.iterator();
             }
 
         };
