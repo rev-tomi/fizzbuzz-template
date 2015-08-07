@@ -44,15 +44,23 @@ public class TestFizzBuzzNumbers
     public void testFizzBuzzNumbersStep()
     {
         // GIVEN
-        Integer i = 0; // start value, inclusive
+        Integer previous = null;
+        boolean first = true;
 
+        // WHEN
         while (nums.hasNext())
         {
-            // WHEN
-            i = i + 1; // step size
-
-            // THEN
-            assertEquals(i, nums.next());
+            final Integer actual = nums.next();
+            if (!first)
+            {
+                // THEN
+                assertEquals(actual - previous, 1);
+            }
+            else
+            {
+                first = false;
+            }
+            previous = actual;
         }
     }
 }
